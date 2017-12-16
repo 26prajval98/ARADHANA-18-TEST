@@ -8,6 +8,19 @@
 		<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet"> 
 		<link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet"> 
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<style type="text/css">
+			.item{
+				font-size: calc(13px + 0.5vw)!important;
+			}
+			.cat{
+				font-size: calc(25px + 0.5vw)!important;
+			}
+			.dps{
+				font-size: calc(10px + 1vw)!important;
+				padding: 5px!important;
+			}
+		</style>
 	</head>
 <body style="position: relative; min-height: 100vh">
 	<div class="w3-content w3-yellow" style="max-width: 5000px; width: 100%;z-index: 1;min-height:98vh;max-height: 100000vh">
@@ -35,55 +48,58 @@
 				</div>
 			</div>
 		</div>
-		<div class="w3-container">
+		<div class="w3-container" style="padding: 0px!important;">
 			<div class="w3-center">
 				<h1 class="w3-jumbo">EVENTS</h1>
-				<div class="w3-container w3-center">
+				<div style="padding: 10px;"></div>
+				<div class="w3-container w3-center" style="padding: 0px!important;">
 					<div class="w3-bar w3-button " onclick="acc('1')">
-						<h1 class="w3-jumbo w3-bar-item">Category I ( Class 1 to 4) </h1>
-						<i class="fa fa-sort-desc w3-bar-item w3-right w3-jumbo" id="1" aria-hidden="true"></i>
-						<i class="fa fa-caret-up w3-bar-item w3-right w3-jumbo w3-hide" id="11" aria-hidden="true"></i>
-						<div class="w3-bar-block w3-hide" id="111">
-							<a href="" class="w3-black w3-button w3-bar-item w3-xlarge">Fancy dress</a>
-							<a href="" class="w3-black w3-button w3-bar-item w3-xlarge">Kalaabhiruchi (drawing sketching painting)</a>
-							<a href="" class="w3-black w3-button w3-bar-item w3-xlarge">Sandesha (story telling)</a>
-							<a href="" class="w3-black w3-button w3-bar-item w3-xlarge">Kalaaranjini (hand and vegetable painting)</a>
-							<a href="" class="w3-black w3-button w3-bar-item w3-xlarge">Kannada poetry recitation</a>							
+						<h1 class="w3-jumbo w3-bar-item cat"  style="padding: 0px!important;">Category I (Class 1 to 4) </h1>
+						<i class="fa fa-sort-desc w3-bar-item w3-right w3-jumbo dps" id="1" aria-hidden="true"></i>
+						<i class="fa fa-caret-up w3-bar-item w3-right w3-jumbo dps" id="11" aria-hidden="true"></i>
+						<div class="w3-bar-block " id="111">
+							<a href="" class="w3-black w3-button w3-bar-item w3-xlarge item">Fancy dress</a>
+							<a href="" class="w3-black w3-button w3-bar-item w3-xlarge item">Kalaabhiruchi (Drawing sketching painting)</a>
+							<a href="" class="w3-black w3-button w3-bar-item w3-xlarge item">Sandesha (Story telling)</a>
+							<a href="" class="w3-black w3-button w3-bar-item w3-xlarge item">Kalaaranjini (Hand and vegetable painting)</a>
+							<a href="" class="w3-black w3-button w3-bar-item w3-xlarge item">Kannada poetry recitation</a>							
 						</div>
 					</div>
 				</div>
-				<div class="w3-container w3-center">
-					<div class="w3-bar w3-button" onclick="acc('2')">
-						<h1 class="w3-jumbo w3-bar-item">Category II ( Class 5 to 7) </h1>
-						<i class="fa fa-sort-desc w3-bar-item w3-right w3-jumbo" id="2" aria-hidden="true"></i>
-						<i class="fa fa-caret-up w3-bar-item w3-right w3-jumbo w3-hide" id="22" aria-hidden="true"></i>
-						<div class="w3-bar-block w3-hide" id="222">
-							<a href="" class="w3-bar-item w3-black w3-button w3-xlarge">Kalaabhiruchi (drawing sketching painting)</a>
-							<a href="" class="w3-bar-item w3-black w3-button w3-xlarge">Sahitya Sindhu (creative writing)</a>
-							<a href="" class="w3-bar-item w3-black w3-button w3-xlarge">Bhashika (elocution)</a>
-							<a href="" class="w3-bar-item w3-black w3-button w3-xlarge">India Quiz</a>
-							<a href="" class="w3-bar-item w3-black w3-button w3-xlarge">Kalaasiri (Collage making)</a>	
-							<a href="" class="w3-bar-item w3-black w3-button w3-xlarge">Varnaanjali (rangoli competition)</a>
-							<a href="" class="w3-bar-item w3-black w3-button w3-xlarge">Aakruthi(clay modelling)</a>			
+				<div style="padding: 20px;"></div>
+				<div class="w3-container w3-center" style="padding: 0px!important;">
+					<div class="w3-bar w3-button" onclick="acc('2')" >
+						<h1 class="w3-jumbo w3-bar-item cat" style="padding: 0px!important;">Category II ( Class 5 to 7) </h1>
+						<i class="fa fa-sort-desc w3-bar-item w3-right w3-jumbo dps" id="2" aria-hidden="true"></i>
+						<i class="fa fa-caret-up w3-bar-item w3-right w3-jumbo dps" id="22" aria-hidden="true"></i>
+						<div class="w3-bar-block" id="222">
+							<a href="" class="w3-bar-item w3-black w3-button w3-xlarge item">Kalaabhiruchi (Drawing sketching painting)</a>
+							<a href="" class="w3-bar-item w3-black w3-button w3-xlarge item">Sahitya Sindhu (Creative writing)</a>
+							<a href="" class="w3-bar-item w3-black w3-button w3-xlarge item">Bhashika (Elocution)</a>
+							<a href="" class="w3-bar-item w3-black w3-button w3-xlarge item">India Quiz</a>
+							<a href="" class="w3-bar-item w3-black w3-button w3-xlarge item">Kalaasiri (Collage making)</a>	
+							<a href="" class="w3-bar-item w3-black w3-button w3-xlarge item">Varnaanjali (Rangoli competition)</a>
+							<a href="" class="w3-bar-item w3-black w3-button w3-xlarge item">Aakruthi(Clay Modelling)</a>			
 						</div>
 					</div>
 				</div>
-				<div class="w3-container w3-center">
+				<div style="padding: 20px;"></div>
+				<div class="w3-container w3-center" style="padding: 0px!important;">
 					<div class="w3-bar w3-button" onclick="acc('3')">
-						<h1 class="w3-jumbo w3-bar-item">Category III ( Class 8 to 10) </h1>
-						<i class="fa fa-sort-desc w3-bar-item w3-right w3-jumbo" id="3" aria-hidden="true"></i>
-						<i class="fa fa-caret-up w3-bar-item w3-right w3-jumbo w3-hide" id="33" aria-hidden="true"></i>
-						<div class="w3-bar-block w3-hide" id="333">
-							<a href="" class="w3-bar-item w3-black w3-button w3-xlarge">Kalaabhiruchi (drawing sketching painting)</a>
-							<a href="" class="w3-bar-item w3-black w3-button w3-xlarge">Sahitya Sindhu (creative writing)</a>
-							<a href="" class="w3-bar-item w3-black w3-button w3-xlarge">Bhashika (elocution)</a>
-							<a href="" class="w3-bar-item w3-black w3-button w3-xlarge">India Quiz</a>
-							<a href="" class="w3-bar-item w3-black w3-button w3-xlarge">Kalaasiri (Collage making)</a>	
-							<a href="" class="w3-bar-item w3-black w3-button w3-xlarge">Varnaanjali (rangoli competition)</a>
-							<a href="" class="w3-bar-item w3-black w3-button w3-xlarge">Mime</a>
-							<a href="" class="w3-bar-item w3-black w3-button w3-xlarge">Charcha (debate)</a>
-							<a href="" class="w3-bar-item w3-black w3-button w3-xlarge">Wealth out of waste</a>	
-							<a href="" class="w3-bar-item w3-black w3-button w3-xlarge">Cooking with out fire</a>			
+						<h1 class="w3-jumbo w3-bar-item cat" style="padding: 0px!important;">Category III (Class 8 to 10) </h1>
+						<i class="fa fa-sort-desc w3-bar-item w3-right w3-jumbo dps" id="3" aria-hidden="true"></i>
+						<i class="fa fa-caret-up w3-bar-item w3-right w3-jumbo dps" id="33" aria-hidden="true"></i>
+						<div class="w3-bar-block " id="333">
+							<a href="" class="w3-bar-item w3-black w3-button w3-xlarge item">Kalaabhiruchi (Drawing sketching painting)</a>
+							<a href="" class="w3-bar-item w3-black w3-button w3-xlarge item">Sahitya Sindhu (Creative writing)</a>
+							<a href="" class="w3-bar-item w3-black w3-button w3-xlarge item">Bhashika (Elocution)</a>
+							<a href="" class="w3-bar-item w3-black w3-button w3-xlarge item">India Quiz</a>
+							<a href="" class="w3-bar-item w3-black w3-button w3-xlarge item">Kalaasiri (Collage making)</a>	
+							<a href="" class="w3-bar-item w3-black w3-button w3-xlarge item">Varnaanjali (Rangoli competition)</a>
+							<a href="" class="w3-bar-item w3-black w3-button w3-xlarge item">Mime</a>
+							<a href="" class="w3-bar-item w3-black w3-button w3-xlarge item">Charcha (Debate)</a>
+							<a href="" class="w3-bar-item w3-black w3-button w3-xlarge item">Wealth out of waste</a>	
+							<a href="" class="w3-bar-item w3-black w3-button w3-xlarge item">Cooking without fire</a>			
 						</div>
 					</div>
 				</div>
@@ -100,21 +116,24 @@
 		</footer>
 	</div>
 	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#1").show();$("#2").show();$("#3").show();	
+			$("#11").hide();$("#22").hide();$("#33").hide();
+			$("#111").hide();$("#222").hide();$("#333").hide();
+		});
 		function acc (s) {
-			var x = document.getElementById(s);
-			if(x.className.search("w3-hide")==-1){
-				x.className += " w3-hide";
-				y = document.getElementById(s+s);
-				y.className = y.className.replace(" w3-hide", "");
-				y = document.getElementById(s+s+s);
-				y.className = y.className.replace(" w3-hide", "");
+			if($('#'+s).css('display') == 'block'){
+				$("#"+s).hide();$("#"+s+s).show();$("#"+s+s+s).show();
 			}
-			else {
-				x.className = x.className.replace(" w3-hide", "");
-				y = document.getElementById(s+s);
-				y.className += " w3-hide";
-				y = document.getElementById(s+s+s);
-				y.className += " w3-hide";
+			else{
+				$("#"+s).show();$("#"+s+s).hide();$("#"+s+s+s).hide();
+			}
+			var Arr = ['1','2','3'];
+			for(var i=0; i<3; i++){
+				if(Arr[i]!=s){
+					var x = Arr[i];
+					$("#"+x).show();$("#"+x+x).hide();$("#"+x+x+x).hide();		
+				}
 			}
 		}
 	</script>
