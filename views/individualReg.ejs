@@ -1,157 +1,273 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Aradhana'18 Portal</title>
-	<link rel="stylesheet" type="text/css" href="/stylesheets/w3css.css">
-	<link rel="shortcut icon" href="/images/tab.png">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<style type="text/css">
-		*{
-			padding: 0px;
-			margin: 0px;
-		}
-	</style>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Registration Portal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>    
+    <link rel="stylesheet" href="/stylesheets/style.css">   
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <style>
+        input[type="checkbox"]{
+            width: 32px; /*Desired width*/
+            height: 54px; /*Desired height*/
+            cursor: pointer;
+            -webkit-appearance: none;
+        }
+    </style>
 </head>
 <body>
-	<div class="w3-content w3-black" style="width: 100vw; min-height: 95vh; max-width: 1000000px;">
-		<div class="w3-button w3-red w3-margin w3-padding" onclick="window.open('https://aradhana18.github.io/aradhana18/')">Aradhana'18 Homepage</div>
-		<div  class="w3-center">			
-			<span class="w3-jumbo">Aradhana 18 Registration Portal</span>
-		</div>
-		<div>
-			<form action="/individualReg" method="POST" onsubmit="return validateForm()">
-				<div id="newStudent">
-					<div class="w3-row">
-						<div class="w3-col l6 m6 s6">
-							<label class="w3-right w3-large w3-padding w3-margin ">Name</label>
-						</div>
-						<div class="w3-col l6 m6 s6">
-							<input type="text" name="name" placeholder="Name" class="w3-left w3-large w3-padding w3-margin Name" style="width:320px;" required>
-						</div>
-					</div>
-					<div class="w3-row" style="margin-bottom:30px;">
-						<div class="w3-col l6 m6 s6">
-							<label class="w3-right w3-large w3-padding w3-margin">Class</label>
-						</div>
-						<div class="w3-col l6 m6 s6">
-							<input type="number" name="class" placeholder="Class" class="w3-left w3-large w3-padding w3-margin Class" min="1" max="10" style="width:320px;" required>
-						</div>
-					</div>			
-				</div>
-				<div class="w3-center">
-					<button class="w3-btn w3-green" id="add" >+ Add Student</button>
-				</div>		
-				<div class="w3-row">
-					<div class="w3-col l6 m6 s6">
-						<label class="w3-right w3-xlarge w3-padding w3-margin">School</label>
-					</div>
-					<div class="w3-col l6 m6 s6">
-						<input type="text" name="school" placeholder="School" class="w3-left w3-xlarge w3-padding w3-margin" required>
-					</div>
-				</div>
-				<div class="w3-row">
-					<div class="w3-col l6 m6 s6">
-						<label class="w3-right w3-xlarge w3-padding w3-margin">Phone Number</label>
-					</div>
-					<div class="w3-col l6 m6 s6">
-						<input type="text" name="ph" placeholder="Phone Number" maxlength=11 class="w3-left w3-xlarge w3-padding w3-margin" required>
-					</div>
-				</div>
-				<div class="w3-row">
-					<div class="w3-col l6 m6 s6">
-						<label class="w3-right w3-xlarge w3-padding w3-margin">Event</label>
-					</div>
-					<div class="w3-col l6 m6 s6">
-						<input type="text" name="event" class="w3-left w3-xlarge w3-padding w3-margin" value=<%= qs.event %> readonly>
-					</div>
-				</div>
-				<div class="w3-row">
-					<div class="w3-col l6 m6 s6">
-						<label class="w3-right w3-xlarge w3-padding w3-margin">Category</label>
-					</div>
-					<div class="w3-col l6 m6 s6">
-						<input type="text" name="category" class="w3-left w3-xlarge w3-padding w3-margin" value=<%= qs.category %> readonly>
-					</div>
-				</div>
-				<div class="w3-center">
-					<input type="submit" class="w3-button w3-xxlarge w3-margin w3-padding w3-yellow" id="submit" value="Submit!!">
-				</div>				
-			</form>
-		</div>
-	</div>
-	<div class="w3-container w3-yellow" style="position: relative; left: 0px; bottom: 0px;min-height: 5vh;width: 100vw;">
-		<div class="w3-center">
-			<a class="w3-btn w3-xlarge w3-bar-item w3-right" href="https://twitter.com/spicmacaynitk?lang=en"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-			<a class="w3-btn w3-xlarge w3-bar-item w3-right" href="https://www.facebook.com/spicmacay.nitk/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-		</div>		
-	</div>
-	<script type="text/javascript">
-		$("document").ready(function () {
-			var a=[];
-			
-			$("#add").click(function(){
-				var html = '<div class="w3-row"><div class="w3-col l6 m6 s6"><label class="w3-right w3-large w3-padding w3-margin ">Name</label></div><div class="w3-col l6 m6 s6"><input type="text" name="name" placeholder="Name" class="w3-left w3-large w3-padding w3-margin Name" style="width:320px;" required></div></div><div class="w3-row" style="margin-bottom:30px;"><div class="w3-col l6 m6 s6"><label class="w3-right w3-large w3-padding w3-margin">Class</label></div><div class="w3-col l6 m6 s6"><input type="text" name="class" placeholder="Class" class="w3-left w3-large w3-padding w3-margin Class" style="width:320px;" required></div></div>';
-				var NAME = $('.Name:eq(-1)').val().trim();
-				var CLASS = $('.Class:eq(-1)').val();
-				var CATEGORY = $('input[name=category]').val();
+    <div class="w3-content w3-yellow" style="max-width:10000px;min-height:100vh">
+        <div class="w3-center w3-container">            
+			<h1 style="font-family: 'Dancing Script'; font-size:55px;cursor:pointer; padding:0px; margin:0px;">ARADHANA'18</h1>
+            <h1 class="w3-jumbo" style="font-family: 'Open Sans', sans-serif;">Registration Portal</h1>
+        </div>
+        <div class="w3-container w3-padding-32 w3-center">
+            <form action="individualReg" method="POST" class="w3-xxlarge" onsubmit="return validateForm()">
+                <div class="w3-row w3-margin">
+                    <div class="w3-col l4 m4 s4">
+                        <label style="font-family:Haettenschweiler;">NAME</label>
+                    </div>
+                    <div class="w3-col l8 m8 s8" >
+                        <input type="text" style="font-family:Haettenschweiler;width:70%; padding:0px!important; border:0px!important" name="name" class="w3-left w3-center" placeholder="Name" required>
+                    </div>
+                </div>
+                <div class="w3-row w3-margin">
+                    <div class="w3-col l4 m4 s4">
+                        <label style="font-family:Haettenschweiler;">SCHOOL</label>
+                    </div>
+                    <div class="w3-col l8 m8 s8" >
+                        <select name="school" style="font-family:Haettenschweiler;width:70%;height:54px;padding:0px;" class="w3-left w3-center"> 
+                            <option>Others</option>
+                            <option>ENGLISH MEDIUM SCHOOL</option>
+                            <option>SRIDEVI HIGH SCHOOL</option>
+                            <option>St.AGNES  ENGLISH MEDIUM PRIMARY SCHOOL</option>
+                            <option>St.THERESAS ICSE SCHOOL</option>
+                            <option>LITTLE ROCK INDIAN SCHOOL</option>
+                            <option>S M S ENGLISH MEDIUM SCHOOL</option>
+                            <option>ROSARIO HIGH SCHOOL</option>
+                            <option>BESANT  ENGLISH SCHOOL</option>
+                            <option>VIVEKA GIRLS HIGH SCHOOL</option>
+                            <option>GURUKULA PUBLIC SCHOOL</option>
+                            <option>KUNDAPUR EDUCATION SOCIETY</option>
+                            <option>SRI VENKAT RAMANA PRIMARY SCHOOL</option>
+                            <option>SHARADA RESIDENTIAL SCHOOL</option>
+                            <option>St.ALOYSHIUS ENGLISH MEDIUM SCHOOL</option>
+                            <option>LADY HILL ENGLISH HIGHER PRIMARY SCHOOL</option>
+                            <option>SRI DURGA PARMESHWARI HIGH SCHOOL</option>
+                            <option>BHARATI ENGLISH MEDIUM SCHOOL</option>
+                            <option>St.LAWRENCE HIGH SCHOOL</option>
+                            <option>JAWAHAR NAVODAYA VIDYALAYA</option>
+                            <option>SWAMI SADANANDA SARASWATI VIDYALAYA</option>
+                            <option>CARMEL ENGLISH SCHOOL</option>
+                            <option>SRI RAMA KRISHNA HIGH SCHOOL</option>
+                            <option>VIVEKANANDA ENGLISH MEDIUM PRIMARY SCHOOL</option>
+                            <option>VIDYADAYINEE PRIMARY SCHOOL</option>
+                            <option>MAHATHMA GANDHI HIGH SCHOOL</option>
+                            <option>MILAGRES KANNADA MEDIUM HIGH SCHOOL</option>
+                            <option>Mt.ROSARYENGLISH MEDIUM SCHOOL</option>
+                            <option>ROTARY ENGLISH MEDIUM SCHOOL</option>
+                            <option>Dr.RAMANNA SHETTY ENGLISH MEDIUM SCHOOL</option>
+                            <option>SRINARAYANA GURU ENGLISH MEDIUM SCHOOL</option>
+                            <option>GLOWIN STAR</option>
+                            <option>SATYA SAI LOKA SEVA VIDYAKENDRA</option>
+                        </select>
+                        <div class="w3-container w3-left" style="margin-top:16px;padding:0px; width:70%">
+                            <input type="text" placeholder="-" readonly name="school" class="w3-center" style="padding:0px;border:0px;width:100%;"> 
+                        </div>
+                    </div>
+                </div>
+                <div class="w3-row w3-margin">
+                    <div class="w3-col l4 m4 s4">
+                        <label style="font-family:Haettenschweiler;">CLASS</label>
+                    </div>
+                    <div class="w3-col l8 m8 s8" >
+                        <input type="number" name="class" style="font-family:Haettenschweiler;width:70%; padding:0px!important; border:0px!important" class="w3-left w3-center" placeholder="Class" min=1 max=10>
+                    </div>
+                </div>
+                <div class="w3-row w3-margin">
+                    <div class="w3-col l4 m4 s4">
+                        <label style="font-family:Haettenschweiler;" class="">CATEGORY</label>
+                    </div>
+                    <div class="w3-col l8 m8 s8" >
+                        <input  name="Category" style="font-family:Haettenschweiler" class="w3-left w3-center" readonly> 
+                    </div>
+                </div>
+                <div class="w3-container">                    
+                    <div class="w3-row w3-margin">
+                        <div class="w3-col l4 s4 m4">
+                            <label style="font-family:Haettenschweiler;" class="w3-center w3-jumbo">EVENTS</label>
+                        </div>
+                    </div>
+                    <div class="w3-container" style="font-family:Haettenschweiler;">
+                        <div class="w3-row">
+                            <div class="w3-col l7 m7 s7">
+                                <label class="w3-right">FANCY DRESS</label>
+                            </div>
+                            <div class="w3-col l5 s5 m5">
+                                <input class="e1 event w3-left" type="checkbox" name="event" value="FANCY DRESS">
+                            </div>
+                        </div>
+                        <div class="w3-row">
+                            <div class="w3-col l7 m7 s7">
+                                <label class="w3-right">KALAABHIRUCHI</label>
+                            </div>
+                            <div class="w3-col l5 s5 m5">
+                                <input type="checkbox" class="e1 e2 e3 event w3-left" name="event" value="KALAABHIRUCHI"><br>
+                            </div>
+                        </div>
+                        <div class="w3-row">
+                            <div class="w3-col l7 m7 s7">
+                                <label class="w3-right">SANDESHA</label>
+                            </div>
+                            <div class="w3-col l5 s5 m5">
+                                <input type="checkbox" name="event" class="e1 event w3-left" value="SANDESHA"><br>
+                            </div>
+                        </div>
+                        <div class="w3-row">
+                            <div class="w3-col l7 m7 s7">
+                                <label class="w3-right">KANNADA POETRY RECITATION</label>
+                            </div>
+                            <div class="w3-col l5 m5 s5">
+                                <input type="checkbox" class="e1 event w3-left" name="event" value="KANNADA POETRY RECITATION"><br>
+                            </div>
+                        </div>
+                        <div class="w3-row">
+                            <div class="w3-col l7 m7 s7">
+                                <label class="w3-right">SAHITYA-SINDHU</label>
+                            </div>
+                            <div class="w3-col l5 m5 s5">
+                                <input type="checkbox" name="event" class="e2 e3 event w3-left" value="SAHITYA-SINDHU"><br>
+                            </div>
+                        </div>
+                        <div class="w3-row">
+                            <div class="w3-col l7 m7 s7">
+                                <label class="w3-right">BHASHIKA</label>
+                            </div>
+                            <div class="w3-col l5 m5 s5">
+                                <input type="checkbox" name="event" class="e2 e3 event w3-left" value="BHASHIKA"><br>
+                            </div>
+                        </div>
+                        <div class="w3-row">
+                            <div class="w3-col l7 m7 s7">
+                                <label class="w3-right">MIME</label>
+                            </div>
+                            <div class="w3-col l5 m5 s5">
+                                <input type="checkbox" name="event" class="e3 event w3-left" value="MIME"><br>
+                            </div>
+                        </div>
+                    </div>                        
+                </div>
+                <div class="w3-row w3-margin">
+                    <div class="w3-col l4 m4 s4">
+                        <label style="font-family:Haettenschweiler;">Email</label>
+                    </div>
+                    <div class="w3-col l8 m8 s8" >
+                        <input type="email" name="email" style="font-family:Haettenschweiler;width:70%; padding:0px!important; border:0px!important" class="w3-left w3-center" placeholder="Email">
+                    </div>
+                </div>
+                <input class="w3-button w3-black w3-margin" type="submit" value="SUBMIT">
+            </form>
+        </div>        
+    </div>   
+    <script>
+        $(document).ready(function(){
+            $('.event').each(function(){
+                    $(this).addClass('w3-hide')
+            })
+            var Category = $('input[name=Category]').val();    
+            var x;
+            if(Category == 'I')
+                x=1;
+            else if(Category =='II')
+                x=2;
+            else if(Category == 'III')
+                x=3;
+            else
+                x=4;
+                
+            if(0<$('input[name=class]').val()&&$('input[name=class]').val()<5){
+                $('input[name=Category]').val('I');
+            }
+            else if(4<$('input[name=class]').val()&&$('input[name=class]').val()<8){
+                $('input[name=Category]').val('II');
+            }
+            else if(7<$('input[name=class]').val()&&$('input[name=class]').val()<11){
+                $('input[name=Category]').val('III');
+            }
+            else{
+                $('input[name=Category]').val('INVALID');
+            }
 
-				if(NAME===" "||NAME==null||NAME==undefined||NAME=="")
-					alert('Enter valid name\n');
-				else if(CATEGORY==='I' && (CLASS<1||CLASS>4))
-					alert('Invalid Class\nEnter class between (1-4)');
-				else if(CATEGORY==='II' && (CLASS<5||CLASS>7))
-					alert('Invalid Class\nEnter class between (5-7)');
-				else if(CATEGORY==='III'&&(CLASS<8||CLASS>10))
-					alert('Invalid Class\nEnter class between (8-10)');
-				else{
-					a = [];
-					$('.Name').each(function (index,obj) {
-						var x = {};
-						x.name = $(this).val();
-						$(this).removeProp('required');
-						$(this).prop('readonly',true);
-						a.push(x);
-					});
-					console.log(a);
-					$('.Class').each(function(index,object){
-						a[index].class = $(this).val();
-						$(this).removeProp('required');
-						$(this).prop('readonly',true);
-						console.log(a[index].class+ " " + index);
-					});
-						console.log(a);
-					$('#newStudent').append(html);
-				};		
-			});
-		});
-		function validateForm(){
-			var NAME = $('.Name:eq(-1)').val().trim();
-			var CLASS = $('.Class:eq(-1)').val();
-			var CATEGORY = $('input[name=category]').val();
-			var PH = $('input[name=ph]').val();
-			console.log('validating');
-			if(NAME===" "||NAME==null||NAME==undefined||NAME=="")
-				return false;
-			else if(CATEGORY==='I' && (CLASS<1||CLASS>4)){
-				alert('Invalid Class\nEnter class between (1-4)');
-				return false;
-			}				
-			else if(CATEGORY==='II' && (CLASS<5||CLASS>7)){
-				alert('Invalid Class\nEnter class between (5-7)');
-				return false;
-			}
-			else if(CATEGORY==='III'&&(CLASS<8||CLASS>10)){
-				alert('Invalid Class\nEnter class between (8-10)');
-				return false;
-			}
-			else if(PH.search(/\D/)>-1||PH.length<10){
-				alert('NUMBERS ONLY OF STRINGLENGTH greater than or equal to 10');
-				return false;
-			}
-			else
-				return true;
-		}
-	</script>
+            $('.e'+x).each(function(){
+                $(this).removeClass('w3-hide');
+            });
+
+            if($('select[name=school]').val()=='Others'){
+                $('input[name=school]').attr('readonly',false);
+            }
+            else{
+                $('input[name=school]').attr('readonly',true).val(null);
+            }
+
+            $('input[name=class]').change(function(){
+                $('.event').each(function(){
+                    $(this).addClass('w3-hide')
+                })
+                var x;
+                if(0<$(this).val()&&$(this).val()<5){
+                    $('input[name=Category]').val('I');
+                }
+                else if(4<$(this).val()&&$(this).val()<8){
+                    $('input[name=Category]').val('II');
+                }
+                else if(7<$(this).val()&&$(this).val()<11){
+                    $('input[name=Category]').val('III');
+                }
+                else{
+                    $('input[name=Category]').val('INVALID');
+                }
+                var Category = $('input[name=Category]').val();
+                
+                if(Category == 'I')
+                    x=1;
+                else if(Category =='II')
+                    x=2;
+                else if(Category == 'III')  
+                    x=3;
+                else
+                    x=4;
+                $('.e'+x).each(function(){
+                    console.log($(this).attr("class").split(' '));
+                    $(this).removeClass('w3-hide');
+                    console.log($(this).attr("class").split(' '));
+                })
+            });
+            $('select[name=school]').change(()=>{
+                if($('select[name=school]').val()=='Others'){
+                    $('input[name=school]').attr('readonly',false);
+                }
+                else{
+                    $('input[name=school]').attr('readonly',true).val(null);
+                }
+            })
+        });
+
+        function validateForm(){
+            //var Category = $(this).val();
+            if(!$('input[type=checkbox]:checked').length){
+                alert('Select atleast one event');
+                return false;
+            }
+            else if($('select[name=school]').val()=='Others'&&($('input[name=school]').val()==null||$('input[name=school]').val()=='')){
+                alert('Enter School Name');
+                return false;
+            }                
+            else
+                return true;    
+        };
+    </script> 
 </body>
-</html>	
+</html>

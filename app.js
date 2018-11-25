@@ -4,11 +4,14 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+mongoose.Promise = require('bluebird');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
 var individualReg = require('./routes/individualReg');
 var teamReg = require('./routes/teamReg');
+
 var app = express();
 
 // view engine setup
@@ -23,10 +26,18 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+var url = "mongodb://admin:admin@ds159187.mlab.com:59187/spot_reg"
+
+mongoose.connect(url,{
+  useMongoClient: true,
+}).then((db)=>{
+  console.log('Connected');
+});
+
 app.use('/', index);
 app.use('/users', users);
-individualReg(app);
-teamReg(app);
+app.use('/individualReg',individualReg);
+app.use('/teamReg',teamReg);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

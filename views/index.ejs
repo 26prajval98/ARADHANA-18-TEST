@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title><%= kid.name %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+    <p>Name:</p><h1><%= kid.name %></h1>
+    <p>Class:</p><h1><%= kid.class%></h1>
+    <p>Events:</p><ul><%for(var i =0; i< kid.event.length; i++){%>
+      <li><h1><%=kid.event[i]%></h1></li>
+      <%}%> 
+    </ul>
+    </body>
 </html>
