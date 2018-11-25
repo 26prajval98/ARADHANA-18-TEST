@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Aradhana'18 Portal</title>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/w3css.css">
+	<link rel="shortcut icon" href="/images/tab.png">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<style type="text/css">
+		*{
+			padding: 0px;
+			margin: 0px;
+		}
+	</style>
+</head>
+<body>
+	<div class="w3-content w3-black" style="width: 100vw; min-height: 95vh; max-width: 1000000px;">
+		<div class="w3-button w3-red w3-margin w3-padding" onclick="window.open('https://aradhana18.github.io/aradhana18/')">Aradhana'18 Homepage</div>
+		<div  class="w3-center">			
+			<span class="w3-jumbo">Aradhana 18 Registration Portal</span>
+		</div>
+		<div>
+			<form action="/teamReg" method="POST" onsubmit="return validateForm()">
+				<div id="newStudent">
+                    <h2 class="w3-xxlarge w3-center">Team</h2>
+					<div class="w3-row">
+						<div class="w3-col l6 m6 s6">
+							<label class="w3-right w3-large w3-padding w3-margin ">Name</label>
+						</div>
+						<div class="w3-col l6 m6 s6">
+							<input type="text" name="name1" placeholder="Name 1" class="w3-left w3-large w3-padding w3-margin Name1" style="width:320px;" required>
+						</div>
+					</div>
+					<div class="w3-row" style="margin-bottom:30px;">
+						<div class="w3-col l6 m6 s6">
+							<label class="w3-right w3-large w3-padding w3-margin">Class</label>
+						</div>
+						<div class="w3-col l6 m6 s6">
+							<input type="number" name="class1" placeholder="Class 1" class="w3-left w3-large w3-padding w3-margin Class1" min="1" max="10" style="width:320px;" required>
+						</div>
+                    </div>
+                    <div class="w3-row">
+                        <div class="w3-col l6 m6 s6">
+                            <label class="w3-right w3-large w3-padding w3-margin ">Name</label>
+                        </div>
+                        <div class="w3-col l6 m6 s6">
+                            <input type="text" name="name2" placeholder="Name 2" class="w3-left w3-large w3-padding w3-margin Name2" style="width:320px;" required>
+                        </div>
+                    </div>
+                    <div class="w3-row" style="margin-bottom:30px;">
+                        <div class="w3-col l6 m6 s6">
+                            <label class="w3-right w3-large w3-padding w3-margin">Class</label>
+                        </div>
+                        <div class="w3-col l6 m6 s6">
+                            <input type="number" name="class2" placeholder="Class 2" class="w3-left w3-large w3-padding w3-margin Class2" min="1" max="10" style="width:320px;" required>
+                        </div>
+                    </div>
+                    <div class="w3-row">
+                        <div class="w3-col l6 m6 s6">
+                            <label class="w3-right w3-large w3-padding w3-margin ">Name</label>
+                        </div>
+                        <div class="w3-col l6 m6 s6">
+                            <input type="text" name="name3" placeholder="Name 3" class="w3-left w3-large w3-padding w3-margin Name3" style="width:320px;">
+                        </div>
+                    </div>
+                    <div class="w3-row" style="margin-bottom:30px;">
+                        <div class="w3-col l6 m6 s6">
+                            <label class="w3-right w3-large w3-padding w3-margin">Class</label>
+                        </div>
+                        <div class="w3-col l6 m6 s6">
+                            <input type="number" name="class3" placeholder="Class 3" class="w3-left w3-large w3-padding w3-margin Class3" min="1" max="10" style="width:320px;">
+                        </div>
+                    </div>			
+				</div>
+				<div class="w3-center">
+					<button class="w3-btn w3-green" id="add" type="button">+ Add Team</button>
+				</div>		
+				<div class="w3-row">
+					<div class="w3-col l6 m6 s6">
+						<label class="w3-right w3-xlarge w3-padding w3-margin">School</label>
+					</div>
+					<div class="w3-col l6 m6 s6">
+						<input type="text" name="school" placeholder="School" class="w3-left w3-xlarge w3-padding w3-margin" required>
+					</div>
+				</div>
+				<div class="w3-row">
+					<div class="w3-col l6 m6 s6">
+						<label class="w3-right w3-xlarge w3-padding w3-margin">Phone Number</label>
+					</div>
+					<div class="w3-col l6 m6 s6">
+						<input type="text" name="ph" placeholder="Phone Number" maxlength=11 class="w3-left w3-xlarge w3-padding w3-margin" required>
+					</div>
+				</div>
+				<div class="w3-row">
+					<div class="w3-col l6 m6 s6">
+						<label class="w3-right w3-xlarge w3-padding w3-margin">Event</label>
+					</div>
+					<div class="w3-col l6 m6 s6">
+						<input type="text" name="event" class="w3-left w3-xlarge w3-padding w3-margin" value=<%= qs.event %> readonly>
+					</div>
+				</div>
+				<div class="w3-row">
+					<div class="w3-col l6 m6 s6">
+						<label class="w3-right w3-xlarge w3-padding w3-margin">Category</label>
+					</div>
+					<div class="w3-col l6 m6 s6">
+						<input type="text" name="category" class="w3-left w3-xlarge w3-padding w3-margin" value=<%= qs.category %> readonly>
+					</div>
+				</div>
+				<div class="w3-center">
+					<input type="submit" class="w3-button w3-xxlarge w3-margin w3-padding w3-yellow" id="submit" value="Submit!!">
+				</div>				
+			</form>
+		</div>
+	</div>
+	<div class="w3-container w3-yellow" style="position: relative; left: 0px; bottom: 0px;min-height: 5vh;width: 100vw;">
+		<div class="w3-center">
+			<a class="w3-btn w3-xlarge w3-bar-item w3-right" href="https://twitter.com/spicmacaynitk?lang=en"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+			<a class="w3-btn w3-xlarge w3-bar-item w3-right" href="https://www.facebook.com/spicmacay.nitk/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+		</div>		
+	</div>
+	<script type="text/javascript">
+		$("document").ready(function (){
+			var a=[];
+			
+			$("#add").click(function(){
+				var html = '<h2 class="w3-xxlarge w3-center">Team</h2><div class="w3-row"><div class="w3-col l6 m6 s6"><label class="w3-right w3-large w3-padding w3-margin ">Name</label></div><div class="w3-col l6 m6 s6"><input type="text" name="name1" placeholder="Name 1" class="w3-left w3-large w3-padding w3-margin Name1" style="width:320px;" required></div></div><div class="w3-row" style="margin-bottom:30px;"><div class="w3-col l6 m6 s6"><label class="w3-right w3-large w3-padding w3-margin">Class</label></div><div class="w3-col l6 m6 s6"><input type="number" name="class1" placeholder="Class 1" class="w3-left w3-large w3-padding w3-margin Class1" min="1" max="10" style="width:320px;" required></div></div><div class="w3-row"><div class="w3-col l6 m6 s6"><label class="w3-right w3-large w3-padding w3-margin ">Name</label></div><div class="w3-col l6 m6 s6"><input type="text" name="name2" placeholder="Name 2" class="w3-left w3-large w3-padding w3-margin Name2" style="width:320px;" required></div></div><div class="w3-row" style="margin-bottom:30px;"><div class="w3-col l6 m6 s6"><label class="w3-right w3-large w3-padding w3-margin">Class</label></div><div class="w3-col l6 m6 s6"><input type="number" name="class2" placeholder="Class 2" class="w3-left w3-large w3-padding w3-margin Class2" min="1" max="10" style="width:320px;" required></div></div><div class="w3-row"><div class="w3-col l6 m6 s6"><label class="w3-right w3-large w3-padding w3-margin ">Name</label></div><div class="w3-col l6 m6 s6"><input type="text" name="name3" placeholder="Name 3" class="w3-left w3-large w3-padding w3-margin Name3" style="width:320px;"></div></div><div class="w3-row" style="margin-bottom:30px;"><div class="w3-col l6 m6 s6"><label class="w3-right w3-large w3-padding w3-margin">Class</label></div><div class="w3-col l6 m6 s6"><input type="number" name="class3" placeholder="Class 3" class="w3-left w3-large w3-padding w3-margin Class3" min="1" max="10" style="width:320px;"></div></div>';
+				var NAME1 = $('.Name1:eq(-1)').val().trim();;
+				var CLASS1 = $('.Class1:eq(-1)').val();;
+				var NAME2 = $('.Name2:eq(-1)').val().trim();;
+				var CLASS2 = $('.Class2:eq(-1)').val();
+				var NAME3 = $('.Name3:eq(-1)').val().trim();;
+				var CLASS3 = $('.Class3:eq(-1)').val();
+				var CATEGORY = $('input[name=category]').val();
+
+				if(NAME1===" "||NAME1==null||NAME1==undefined||NAME1=="")
+					alert('Enter valid first name\n');
+				else if(CATEGORY==='I' && (CLASS1<1||CLASS1>4))
+					alert('Invalid Class\nEnter first class between (1-4)');
+				else if(CATEGORY==='II' && (CLASS1<5||CLASS1>7))
+					alert('Invalid Class\nEnter first class between (5-7)');
+				else if(CATEGORY==='III'&&(CLASS1<8||CLASS1>10))
+					alert('Invalid Class\nEnter first class between (8-10)');
+				else if(NAME2===" "||NAME2==null||NAME2==undefined||NAME2=="")
+					alert('Enter valid second name\n');
+				else if(CATEGORY==='I' && (CLASS2<1||CLASS2>4))
+					alert('Invalid Class\nEnter second class between (1-4)');
+				else if(CATEGORY==='II' && (CLASS2<5||CLASS2>7))
+					alert('Invalid Class\nEnter second class between (5-7)');
+				else if(CATEGORY==='III'&&(CLASS2<8||CLASS2>10))
+					alert('Invalid Class\nEnter second class between (8-10)');
+				else if((NAME3===" "||NAME3==null||NAME3==undefined||NAME3=="")&&CLASS3)
+					alert('Fill third name');
+				else if((NAME3!=" "&&NAME3!=null&&NAME3!=undefined&&NAME3!="")&&!CLASS3)
+					alert('Fill third class');
+				else if(NAME3&&CLASS3){
+					if(CATEGORY==='I' && (CLASS3<1||CLASS3>4))
+						alert('Invalid Class\nEnter third class between (1-4)');
+					else if(CATEGORY==='II' && (CLASS3<5||CLASS3>7))
+						alert('Invalid Class\nEnter third class between (5-7)');
+					else if(CATEGORY==='III'&&(CLASS3<8||CLASS3>10))
+						alert('Invalid Class\nEnter third class between (8-10)');
+					else{
+						console.log('clicked');
+						$('.Name1').each(function (index,obj) {
+							var x = {};
+							x.name = $(this).val();
+							$(this).removeProp('required');
+							$(this).prop('readonly',true);
+						});
+						$('.Class1').each(function(index,object){
+							$(this).removeProp('required');
+							$(this).prop('readonly',true);
+						});
+						$('.Name2').each(function (index,obj) {
+							var x = {};
+							x.name = $(this).val();
+							$(this).removeProp('required');
+							$(this).prop('readonly',true);
+						});
+						$('.Class2').each(function(index,object){
+							$(this).removeProp('required');
+							$(this).prop('readonly',true);
+						});
+						$('.Name3').each(function (index,obj) {
+							var x = {};
+							x.name = $(this).val();
+							$(this).removeProp('required');
+							$(this).prop('readonly',true);
+						});
+						$('.Class3').each(function(index,object){
+							$(this).removeProp('required');
+							$(this).prop('readonly',true);
+						});
+						$('#newStudent').append(html);
+					};
+				}
+				else{
+				console.log('clicked');
+					$('.Name1').each(function (index,obj) {
+						var x = {};
+						x.name = $(this).val();
+						$(this).removeProp('required');
+						$(this).prop('readonly',true);
+					});
+					$('.Class1').each(function(index,object){
+						$(this).removeProp('required');
+						$(this).prop('readonly',true);
+					});
+					$('.Name2').each(function (index,obj) {
+						var x = {};
+						x.name = $(this).val();
+						$(this).removeProp('required');
+						$(this).prop('readonly',true);
+					});
+					$('.Class2').each(function(index,object){
+						$(this).removeProp('required');
+						$(this).prop('readonly',true);
+					});
+					$('.Name3').each(function (index,obj) {
+						var x = {};
+						x.name = $(this).val();
+						$(this).removeProp('required');
+						$(this).prop('readonly',true);
+					});
+					$('.Class3').each(function(index,object){
+						$(this).removeProp('required');
+						$(this).prop('readonly',true);
+					});
+					$('#newStudent').append(html);
+				}		
+			});
+		});
+		function validateForm(){
+			var NAME1 = $('.Name1:eq(-1)').val().trim();
+			var CLASS1 = $('.Class1:eq(-1)').val();;
+			var NAME2 = $('.Name2:eq(-1)').val().trim();
+			var CLASS2 = $('.Class2:eq(-1)').val();
+			var NAME3 = $('.Name3:eq(-1)').val().trim();
+			var CLASS3 = $('.Class3:eq(-1)').val();
+			var CATEGORY = $('input[name=category]').val();
+			var PH = $('input[name=ph]').val();
+			console.log('validating');
+			if(NAME1===" "||NAME1==null||NAME1==undefined||NAME1==""){
+				alert('Enter valid first name\n');
+				return false;
+			}
+			else if(CATEGORY==='I' && (CLASS1<1||CLASS1>4)){
+				alert('Invalid Class\nEnter first class between (1-4)');
+				return false;
+			}
+			else if(CATEGORY==='II' && (CLASS1<5||CLASS1>7)){
+				alert('Invalid Class\nEnter first class between (5-7)');
+				return false;
+			}
+			else if(CATEGORY==='III'&&(CLASS1<8||CLASS1>10)){
+				alert('Invalid Class\nEnter first class between (8-10)');
+				return false;
+			}
+			else if(NAME2===" "||NAME2==null||NAME2==undefined||NAME2==""){
+				alert('Enter valid second name\n');
+				return false;
+			}
+			else if(CATEGORY==='I' && (CLASS2<1||CLASS2>4)){
+				alert('Invalid Class\nEnter second class between (1-4)');
+				return false;
+			}
+			else if(CATEGORY==='II' && (CLASS2<5||CLASS2>7)){
+				alert('Invalid Class\nEnter second class between (5-7)');
+				return false;
+			}
+			else if(CATEGORY==='III'&&(CLASS2<8||CLASS2>10)){
+				alert('Invalid Class\nEnter second class between (8-10)');
+				return false;
+			}
+			else if((NAME3===" "||NAME3==null||NAME3==undefined||NAME3=="")&&CLASS3){
+				alert('Fill third name');
+				return false;
+			}
+			else if((NAME3!=" "&&NAME3!=null&&NAME3!=undefined&&NAME3!="")&&!CLASS3){
+				alert('Fill third class');
+				return false;
+			}
+			else if(NAME3&&CLASS3){
+				if(CATEGORY==='I' && (CLASS3<1||CLASS3>4)){
+					alert('Invalid Class\nEnter third class between (1-4)');
+					return false;
+				}
+				else if(CATEGORY==='II' && (CLASS3<5||CLASS3>7)){
+					alert('Invalid Class\nEnter third class between (5-7)');
+					return false;
+				}				
+				else if(CATEGORY==='III'&&(CLASS3<8||CLASS3>10)){
+					alert('Invalid Class\nEnter third class between (8-10)');
+					return false;
+				}
+			}
+			else if(PH.search(/\D/)>-1||PH.length<10){
+				alert('NUMBERS ONLY OF STRINGLENGTH greater than or equal to 10 '+PH.length);
+				return false;
+			}							
+			else
+				return true;
+		}
+	</script>
+</body>
+</html>	
