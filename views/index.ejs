@@ -1,15 +1,62 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= kid.name %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <p>Name:</p><h1><%= kid.name %></h1>
-    <p>Class:</p><h1><%= kid.class%></h1>
-    <p>Events:</p><ul><%for(var i =0; i< kid.event.length; i++){%>
-      <li><h1><%=kid.event[i]%></h1></li>
-      <%}%> 
-    </ul>
-    </body>
+
+<head>
+	<link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body class="w3-container w3-yellow">
+	<h1 class="w3-center w3-jumbo">Aradhana 2018 Spot Registration Statistics</h1>
+	<div class="w3-row">
+		<div class="w3-col l6 m12 s12">
+			<h1 class="w3-xxlarge">Individual Events</h1>
+			<%for(var i=0; i < individualStats.length; i++){%>
+			<h1 class="w3-xlarge">Category
+				<%=individualStats[i]._id %>
+			</h1>
+			<table class="w3-table-all w3-hoverable" style="width : 80%">
+				<tr>
+					<th>Event</th>
+					<th>Participants</th>
+				</tr>
+				<%for(var j = 0; j < individualStats[i].eventlist.length; j++){%>
+				<tr>
+					<td style="width : 400px">
+						<%=individualStats[i].eventlist[j].event%>
+					</td>
+					<td>
+						<%=individualStats[i].eventlist[j].count%>
+					</td>
+				</tr>
+				<%}%>
+			</table>
+			<%}%>
+		</div>
+		<div class="w3-col l6 m12 s12">
+			<h1 class="w3-xxlarge">Team Events</h1>
+			<%for(var i=0; i < teamStats.length; i++){%>
+			<h1 class="w3-xlarge">Category
+				<%=teamStats[i]._id %>
+			</h1>
+			<table class="w3-table-all w3-hoverable" style="width : 80%">
+				<tr>
+					<th>Event</th>
+					<th>No of teams</th>
+				</tr>
+				<%for(var j = 0; j < teamStats[i].eventlist.length; j++){%>
+				<tr>
+					<td style="width : 400px">
+						<%=teamStats[i].eventlist[j].event%>
+					</td>
+					<td>
+						<%=teamStats[i].eventlist[j].count%>
+					</td>
+				</tr>
+				<%}%>
+			</table>
+			<%}%>
+		</div>
+	</div>
+</body>
+
 </html>
